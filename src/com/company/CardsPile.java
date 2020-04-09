@@ -9,7 +9,7 @@ public abstract class CardsPile {
     protected int numOfCards;
 
     public CardsPile(){
-        cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
         numOfCards = 0;
     }
 
@@ -23,10 +23,7 @@ public abstract class CardsPile {
         numOfCards--;
     }
 
-    public int getnumOfCards(){
-        return numOfCards;
-    }
-
+    //This function scrumbles the cards in the deck by generating random index for each card and switch their places
     public void ScrumbleDeck() {
         Random rand = new Random();
         for(int i=0; i<numOfCards;i++) {
@@ -34,12 +31,10 @@ public abstract class CardsPile {
         }
     }
 
-    public boolean IsEmpty(){
-        return numOfCards==0;
-    }
-    protected ArrayList<Card> getCards(){
-        return cards;
-    }
+    public boolean IsEmpty(){ return numOfCards==0; }
+
+    public ArrayList<Card> getCards(){ return cards; }
+    public int getnumOfCards(){ return numOfCards; }
     public String toString(){
         String tmp = "Number of Cards: " + numOfCards + ", The cards are:";
         for (Card i:cards

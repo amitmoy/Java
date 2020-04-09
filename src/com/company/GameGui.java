@@ -8,10 +8,9 @@ public class GameGui extends JPanel {
 
     public GameGui(String username,int numOfDecks){
         game = new GameBoard(username,numOfDecks);
-        game.ScrumbleDeck();
         game.PcPullUntill(17);
-        PullCards(1);
-        PullCards(1);
+        PullCards(0);
+        PullCards(0);
     }
     public void PullCards(int choice){
             game.PullCards(choice);

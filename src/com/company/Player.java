@@ -11,18 +11,6 @@ public class Player {
         name = str;
     }
 
-    public void setName(String str){
-        name = str;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public boolean isBurned(){
-        return hand.getValue()>21;
-    }
-
     public int getHandValue(){
         int numOfAces=0;
         int value=0;
@@ -40,10 +28,12 @@ public class Player {
         }
         return value;
     }
+
     public void PullCard(Card c){
         getHand().AddCard(c);
     }
 
+    //Drawing the player's information with Graphics object its getting from GameBoard
     public void DrawPlayer(Graphics g, int w, int h){
         String info = name + "'s hand value:" +getHandValue();
         g.setFont(new Font("arial",Font.ITALIC, 14));
@@ -55,13 +45,18 @@ public class Player {
         }
         g.drawString(info,w,h+15);
     }
-    public Hand getHand(){
-        return hand;
-    }
+
+    public boolean isBurned(){ return getHandValue()>21; }
+
+    public void setName(String str){ name = str; }
     public void setHand(Hand new_hand){
         hand = new_hand;
     }
-    public String toString(){
-        return name+"'s hand information: " + hand.toString();
+    public String getName(){
+        return name;
     }
+    public Hand getHand(){
+        return hand;
+    }
+    public String toString(){ return name+"'s hand information: " + hand.toString(); }
 }
